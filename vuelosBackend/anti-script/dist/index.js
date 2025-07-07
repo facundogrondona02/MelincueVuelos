@@ -138,6 +138,7 @@ const haciendoScraping = async (objetoViaje) => {
             return scrapingVuelos(vuelo);
         });
         const scrapingResults = await Promise.all(scrapingPromises);
+        console.log("RESUULTADOOSOOSOSOS ", scrapingResults);
         respuestas.push(...scrapingResults.filter((r) => r !== undefined));
         console.log("✅ Resultados de scraping:", respuestas);
         return respuestas;
@@ -149,22 +150,22 @@ const haciendoScraping = async (objetoViaje) => {
         }
     }
 };
-const fetching = async (data) => {
-    await fetch('http://localhost:3020/mensajeFormateado', {
-        method: "POST",
-        body: JSON.stringify({ data }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => {
-        console.log("Respuesta del servidor:", data);
-    })
-        .catch((error) => {
-        console.error("Error al enviar el formulario:", error);
-    });
-};
+// const fetching = async (data: any) => {
+//   await fetch('http://localhost:3020/mensajeFormateado', {
+//     method: "POST",
+//     body: JSON.stringify({ data }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log("Respuesta del servidor:", data);
+//     })
+//     .catch((error) => {
+//       console.error("Error al enviar el formulario:", error);
+//     });
+// }
 const llamandoDestinos = async () => {
     try {
         const response = await fetch(`${IA_API_BASE_URL}/destinos`, {
