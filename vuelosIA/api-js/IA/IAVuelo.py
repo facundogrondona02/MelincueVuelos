@@ -217,7 +217,6 @@ Mensaje del cliente:
     )
     except Exception as e:
         print(f"Error en llamada a Ollama: {e}")
-    return {}
 
     print(">> Respuesta recibida de Ollama")
     respuesta_texto = response["message"]["content"].strip()
